@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://qddgrqathi0v"]
+
+[ext_resource type="Texture2D" uid="uid://drkjb13pblw1g" path="res://icon.svg" id="1_7p1mj"]
+[ext_resource type="Script" uid="uid://c0bn7uhb8pg4t" path="res://scripts/hitbox.gd" id="2_md0e3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_md0e3"]
+size = Vector2(128, 128)
+
+[node name="enemy" type="CharacterBody2D"]
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_7p1mj")
+
+[node name="myhitbox" type="Area2D" parent="Sprite2D"]
+script = ExtResource("2_md0e3")
+metadata/_custom_type_script = "uid://c0bn7uhb8pg4t"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/myhitbox"]
+shape = SubResource("RectangleShape2D_md0e3")
